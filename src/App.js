@@ -13,11 +13,21 @@ function App() {
   },[]);
 
   const [produtos, setProdutos] = useState([]);
+  const [listaCarrinho, setListaCarrinho] = useState([]);
+  /*var lista;
+  if(lista = localStorage.getItem("carrinho") !== null){
+      setListaCarrinho(JSON.parse(lista));
+  }
+  else{
+    setListaCarrinho([]);
+  }*/
+
+
   return (
     <div className="App">
-      <Cabecalho/>
-      <BarraBusca/>
-      <GradeProdutos listaProdutos={produtos}/>
+      <Cabecalho />
+      <BarraBusca setListaCarrinho={setListaCarrinho} listaCarrinho={listaCarrinho}/>
+      <GradeProdutos listaProdutos={produtos} setListaCarrinho={setListaCarrinho} listaCarrinho={listaCarrinho}/>
     </div>
   );
 }

@@ -1,5 +1,10 @@
 import Carrinho from './Carrinho';
+import { useState } from "react";
+
+
+
 export default function BarraBusca(props) {
+
     return (
         <>
             <div style={{
@@ -58,7 +63,7 @@ export default function BarraBusca(props) {
                     >Buscar</button>
                 </div>
                 <div>
-                    <Carrinho />
+                    <Carrinho qtdCarrinho={props.listaCarrinho.length}/>
                 </div>
             </div>
             <div style={{

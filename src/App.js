@@ -1,4 +1,3 @@
-import { Container } from "react-bootstrap";
 import GradeProdutos from "./componentes/GradeProdutos";
 import BarraBusca from "./templates/BarraBusca";
 import TabelaCarrinho from "./componentes/TabelaCarrinho"
@@ -18,7 +17,6 @@ function App() {
   const [listaCarrinho, setListaCarrinho] = useState([]);
   const [exibirFormulario, setExibirFormulario] = useState(true);
 
-
   /*var lista;
   if(lista = localStorage.getItem("carrinho") !== null){
       setListaCarrinho(JSON.parse(lista));
@@ -27,18 +25,20 @@ function App() {
     setListaCarrinho([]);
   }*/
 
+  if(exibirFormulario)
+  {
+    return (
 
-  return (
-  
-    <div className="App">
-      exibirFormulario?
-        <Cabecalho />
-        <BarraBusca setListaCarrinho={setListaCarrinho} listaCarrinho={listaCarrinho}/>
-        <GradeProdutos listaProdutos={produtos} setListaCarrinho={setListaCarrinho} listaCarrinho={listaCarrinho}/>
-        :
-        <TabelaCarrinho listaCarrinho={listaCarrinho}/>
-    </div>
-  );
+      <div className="App">
+          <Cabecalho />
+          <BarraBusca setListaCarrinho={setListaCarrinho} listaCarrinho={listaCarrinho} exibirFormulario={exibirFormulario} setExibirFormulario={setExibirFormulario}/>
+          <GradeProdutos listaProdutos={produtos} setListaCarrinho={setListaCarrinho} listaCarrinho={listaCarrinho}/>    
+      </div>
+    );
+  }
+  else
+  {
+    return(<TabelaCarrinho setListaCarrinho={setListaCarrinho} listaCarrinho={listaCarrinho} exibirFormulario={exibirFormulario} setExibirFormulario={setExibirFormulario}/>);
+  }
 }
-
 export default App;

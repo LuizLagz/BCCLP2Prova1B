@@ -3,7 +3,7 @@ import {Container, Table, Button} from "react-bootstrap";
 export default function TabelaCarrinho(props){
 
     function excluirProduto(produto){
-
+        props.setListaCarrinho(props.listaCarrinho.filter((item)=>item.title !== produto.title));
     }
     function alterarProduto(produto){
         
@@ -17,6 +17,7 @@ export default function TabelaCarrinho(props){
                         <th>Preço</th>
                         <th>Nota</th>
                         <th>Quantidade</th>
+                        <th>Botoes</th>
                     </tr>
                 </thead>
                 <tbody>          
@@ -42,8 +43,8 @@ export default function TabelaCarrinho(props){
                 </tbody>
             </Table>
             <Button type="button" style={{float: 'right'}} onClick={()=>{
-                    props.exibirFormulario(true);
-                    }}>Novo</Button>
+                    props.setExibirFormulario(true);
+                    }}>Voltar</Button>
         </Container>
     );
 }

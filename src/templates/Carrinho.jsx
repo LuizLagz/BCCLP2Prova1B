@@ -18,7 +18,8 @@ export default function Carrinho(props) {
                 padding: '2px',
                 width: '40px'
             }} id='icone-carrinho'>
-                <button id='botao-carrinho'style={{
+                <button onClick={()=>{props.setExibirFormulario(false)}}
+                    id='carrinho'style={{
                     backgroundColor: "inherit",
                     border: '0px',
                 }
